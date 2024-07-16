@@ -8,9 +8,12 @@ const app=express();
 app.use(express.json())
 app.use("/", userRoutes);
 app.use(bodyParser.json())
+
 app.use(cors({
-    origin: 'https://localhost:3000/',
+    origin: 'http://localhost:3000', 
     credentials: true,
-}));
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+    allowedHeaders: ['Content-Type', 'Authorization'], 
+  }));
 
 export default app;
