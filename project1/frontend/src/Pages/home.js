@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function test() {
@@ -17,15 +16,11 @@ const Home = () => {
           setProducts(response.data);
         })
         .catch((err) => {
-          setError(err);
+          console.log(err)
         });
     }
     test();
   }, []);
-
-  if (error) {
-    return <Typography color="error">Error: {error.message}</Typography>;
-  }
 
   return (
     <Container>
@@ -34,10 +29,10 @@ const Home = () => {
       </Typography>
       <Grid container spacing={4}>
         {products.map((product) => (
+
           <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
             <Link
               to={`/${product.id}/${product.category}`}
-              style={{ textDecoration: "none" }}
             >
               <Card>
                 <CardContent>
@@ -47,9 +42,11 @@ const Home = () => {
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
                     Rating: {product.rating}
+
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
                     Discount: {product.discount}%
+
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
                     Availability: {product.availability}

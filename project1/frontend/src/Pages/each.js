@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 const ProductDetails = () => {
   const { id, cat } = useParams();
   const [product, setProduct] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -16,19 +15,11 @@ const ProductDetails = () => {
         );
         setProduct(response.data);
       } catch (err) {
-        setError(err);
-      }
+        console.log(err)
+    }
     }
     fetchProduct();
   }, [id, cat]);
-
-  if (error) {
-    return <Typography color="error">Error: {error.message}</Typography>;
-  }
-
-  if (!product) {
-    return <Typography variant="h6">Product not found</Typography>;
-  }
 
   return (
     <Container>
@@ -41,11 +32,13 @@ const ProductDetails = () => {
           <Typography variant="body1" color="textSecondary">
             Price: ${product.price}
           </Typography>
+
           <Typography variant="body1" color="textSecondary">
             Rating: {product.rating}
           </Typography>
           <Typography variant="body1" color="textSecondary">
             Discount: {product.discount}%
+
           </Typography>
           <Typography variant="body1" color="textSecondary">
             Availability: {product.availability}
