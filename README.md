@@ -6,4 +6,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### Photos are there in photos folder
+### Photos are there in screenshots folder
