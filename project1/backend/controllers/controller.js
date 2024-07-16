@@ -40,10 +40,7 @@ async function getProducts(company, category, token) {
     );
     return response.data;
   } catch (error) {
-    console.error(
-      `Error fetching data for company: ${company}, category: ${category}`,
-      error.message
-    );
+    console.error(error);
     return [];
   }
 }
@@ -60,7 +57,7 @@ const fetchAndStoreData = async (req, res) => {
       token = response.data.access_token;
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error(error);
     });
 
   console.log("next");
@@ -116,7 +113,7 @@ const getEachProduct = (req, res) => {
       return res
         .status(300)
         .json({
-          message: "Category, company, minPrice, and maxPrice are required",
+          message: "Error",
         });
     }
     const minPriceNum = parseFloat(minPrice);
@@ -148,7 +145,7 @@ const getSpecificProducts = (req, res) => {
     if (product) {
       res.json(product);
     } else {
-      res.status(404).json({ message: "Product not found" });
+      res.status(404).json({ message: "not found" });
     }
   } catch (error) {
     res.json({ message: error });
