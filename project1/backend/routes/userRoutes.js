@@ -11,8 +11,6 @@ const router = express.Router();
 router.route("/").get(check);
 router.route("/all").get(getAll);
 router.route("/categories/:categoryname/products").get(getEachProduct);
-router
-  .route("/categories/:categoryname/products/:productid")
-  .get(getSpecificProducts);
+router.route("/categories/:categoryname/products/:productid").get(getSpecificProducts);
 
 export default router;

@@ -10,16 +10,16 @@ const queryParams = {
   rollNo: "125156066",
 };
 
-// const categories = [
-//     "Phone", "Computer", "TV", "Earphone", "Tablet", "Charger", "House", "Keypad",
-//     "Bluetooth", "Pendrive", "Remote", "Speaker", "Headset", "Laptop", "PC"
-// ];
+const categories = [
+    "Phone", "Computer", "TV", "Earphone", "Tablet", "Charger", "House", "Keypad",
+    "Bluetooth", "Pendrive", "Remote", "Speaker", "Headset", "Laptop", "PC"
+];
 
-// const companies = ["MYN","FLP", "SNP", "MYN", "AZO"];
+const companies = ["MYN","FLP", "SNP", "MYN", "AZO"];
 
-const categories = ["Phone"];
+// const categories = ["Phone"];
 
-const companies = ["MYN", "FLP"];
+// const companies = ["MYN", "FLP"];
 
 let Products = [];
 

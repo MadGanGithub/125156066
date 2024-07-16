@@ -1,14 +1,14 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import './App.css';
-import Home from './Pages/home.js';
-
+import "./App.css";
+import Each from "./Pages/each.js";
+import Home from "./Pages/home.js";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/about" element={<Each />} /> */}
+        <Route path="/:id/:cat" element={<Each />} />
       </Routes>
     </Router>
   );
