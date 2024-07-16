@@ -128,6 +128,7 @@ const getEachProduct = (req, res) => {
       minPriceNum,
       maxPriceNum
     );
+    
     res.json(result);
   } catch (error) {
     console.log(error);

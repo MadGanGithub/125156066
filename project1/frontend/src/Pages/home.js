@@ -1,31 +1,26 @@
-import { Box, Card, CardContent, CardMedia, CircularProgress, Container, Grid, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/all")
+    async function test(){
+      await axios.get("http://localhost:3001/all",{
+        withCredentials: true,
+      })
       .then(response => {
         setProducts(response.data);
-        setLoading(false);
       })
       .catch(err => {
         setError(err);
-        setLoading(false);
       });
-  }, []);
+    }
+    test();
 
-  if (loading) {
-    return (
-      <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-        <CircularProgress />
-      </Box>
-    );
-  }
+  }, []);
 
   if (error) {
     return <Typography color="error">Error: {error.message}</Typography>;
